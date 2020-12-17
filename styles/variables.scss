@@ -1,0 +1,24 @@
+$dark-mode-color: (
+    $BC_COLOR: "#131D24",
+    $TEXT_COLOR: "#fff",
+    $UI_COLOR: "#1F292F",
+    $LINK_COLOR: "#5399D5",
+    $BORDER_COLOR: "#707070"
+) !default; //上書き防止
+@function d_color($dark-mode-color-list) {
+    @return #{map-get($dark-mode-color, $dark-mode-color-list)}
+  };
+
+$light-mode-color: (
+    $BC_COLOR: "#fff",
+    $TEXT_COLOR: "#131D24",
+    $UI_COLOR: "#1F292F",
+    $LINK_COLOR: "#5399D5",
+    $BORDER_COLOR: "#707070"
+) !default; //上書き防止
+@function l_color($light-mode-color-list) {
+    @return #{map-get($light-mode-color, $light-mode-color-list)}
+  };
+
+
+  

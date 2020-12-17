@@ -1,0 +1,52 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #131D24;
+  font-family: NotoSansJP;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+	font-family: 'NotoSansJP';
+	src: url('../public//fonts/NotoSansJP-Regular.woff');
+}
+
+@font-face {
+	font-family: 'Moon';
+	src: url('../public//fonts/Moon-Light.woff');
+}
+
+@font-face {
+	font-family: 'NorthAvellion';
+	src: url('../public//fonts/North-Avellion.woff');
+}
+
+/*pcサイズ以上*/
+@media screen and (min-width: 1100px) {
+  .pc_none {
+    display: none;
+  }
+}
+
+/*タブレットサイズ*/
+@media screen and (max-width: 1099px) and (min-width: 600px) {
+  .tb_none {
+    display: none;
+  }
+}
+
+/*spサイズ以下*/
+@media screen and (max-width: 599px) {
+  .sp_none {
+    display: none;
+  }
+}

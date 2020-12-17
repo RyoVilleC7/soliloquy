@@ -1,0 +1,189 @@
+
+
+.postStatus {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+}
+
+.postDate, .postTags {
+    font-size: 1.2rem;
+}
+
+.separator {
+    width: 1px;
+    height: 10px;
+    margin: 0 10px;
+    background-color: #707070;
+}
+
+.postCard img {
+    object-fit: cover;
+}
+
+
+/*pcサイズ以上*/
+@media screen and (min-width: 1100px) {
+    
+.archiveTopLogoWrapper {
+    margin: 50px 0 70px 0;
+}
+
+.archiveTopLogo {
+    color: #fff;
+    text-align: center;
+}
+
+.archiveTopLogo dt {
+    font-family: 'NorthAvellion';
+    font-size: 8rem;
+    margin-bottom: 30px;
+}
+
+.archiveTopLogo dd {
+    font-size: 1.6rem;
+    letter-spacing: 2px;
+}
+
+    .postWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+
+    .postCard {
+        width: calc( ( 100% - 90px ) / 3 );
+        margin: 0 45px 45px 0;
+        color: #fff;
+    }
+    
+    .postCard:nth-child( 3n ) {
+        margin: 0 0 45px 0;
+    }
+    
+    .postCard img {
+        width: 100%;
+    }
+
+    .postCard h1 {
+        font-size: 1.8rem;
+        letter-spacing: 2px;
+        line-height: 1.3em;
+        line-break: anywhere;
+    }
+  
+  }
+
+/*タブレットサイズ*/
+@media screen and (max-width: 1099px) and (min-width: 700px) {
+    
+    .archiveTopLogoWrapper {
+        margin: 50px 0 70px 0;
+    }
+    
+    .archiveTopLogo {
+        color: #fff;
+        text-align: center;
+    }
+    
+    .archiveTopLogo dt {
+        font-family: 'NorthAvellion';
+        font-size: 8rem;
+        margin-bottom: 30px;
+    }
+    
+    .archiveTopLogo dd {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+    }
+
+    .postWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 50px;
+    }
+
+    .postCard {
+        width: calc( ( 100% - 90px ) / 3 );
+        margin: 0 45px 45px 0;
+        color: #fff;
+    }
+    
+    .postCard:nth-child( 3n ) {
+        margin: 0 0 45px 0;
+    }
+
+    .postCard img {
+        width: 100%;
+    }
+
+    .postCard h1 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        line-height: 1.3em;
+        line-break: anywhere;
+    }
+  }
+  
+  /*spサイズ以下*/
+  @media screen and (max-width: 699px) {
+    
+    .archiveTopLogoWrapper {
+        margin: 30px 0;
+    }
+    
+    .archiveTopLogo {
+        color: #fff;
+        text-align: center;
+    }
+    
+    .archiveTopLogo dt {
+        font-family: 'NorthAvellion';
+        font-size: 6rem;
+        margin-bottom: 30px;
+    }
+    
+    .archiveTopLogo dd {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+        line-height: 1.5em;
+    }
+
+.postWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 25px;
+}
+
+    .postCard {
+        width: calc( ( 100% - 20px ) / 2 );
+        margin: 0 20px 20px 0;
+        color: #fff;
+    }
+    
+    .postCard:nth-child( 2n ) {
+        margin: 0 0 20px 0;
+    }
+    
+    .postCard img {
+        width: 100%;
+    }
+
+    .postCard h1 {
+        font-size: 1.6rem;
+        letter-spacing: 2px;
+        line-height: 1.3em;
+        line-break: anywhere;
+    }
+
+    .postDate, .postTags {
+        font-size: 1rem;
+    }
+
+    .separator {
+        width: 1px;
+        height: 10px;
+        margin: 0 5px;
+        background-color: #707070;
+    }
+  }
