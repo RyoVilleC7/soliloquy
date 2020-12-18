@@ -6,7 +6,7 @@ import PageNation from '../components/parts/pageNation';
 
 const postArray = [
   {
-    title: 'これはタイトルです。これはタイトルです。',
+    title: 'vercelデプロイテスト',
   },
   {
     title: 'post2',
