@@ -1,4 +1,6 @@
 const PageTitle = (props) => {
+  
+    //component
     return (
         <div className={props.Styles.pageTitle}>
             <h2>{props.pageTitle}</h2>

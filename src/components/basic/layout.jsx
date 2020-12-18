@@ -1,8 +1,10 @@
 import Header from './header';
 import Footer from './footer';
-import Styles from '../../../styles/layout.module.scss'
+import Styles from '../../styles/modules/layout.module.scss'
 
 const Layout = (props) => {
+  
+  //component
   return (
     <>
       <Header Styles={Styles} />

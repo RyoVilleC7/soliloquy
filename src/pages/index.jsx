@@ -1,7 +1,5 @@
-import styles from '../../styles/layout.module.scss';
-import Meta from '../components/basic/meta';
-import Layout from '../components/basic/layout';
-import archiveStyles from '../../styles/archive.module.scss';
+import styles from '../styles/modules/layout.module.scss';
+import archiveStyles from '../styles/modules/archive.module.scss';
 import PageTitle from '../components/parts/pageTitle';
 import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
@@ -33,13 +31,11 @@ const pageNationObj = {
     centerMenuState: false
 }
 
-
-
 export default function Home() {
+  
+  //pages
   return (
     <>
-    <Meta />
-    <Layout>
       <div className={archiveStyles.archiveTopLogoWrapper}>
         <dl className={archiveStyles.archiveTopLogo}>
           <dt>
@@ -62,8 +58,6 @@ export default function Home() {
       <div className={styles.pageNationWrapper}>
         <PageNation data={pageNationObj} Styles={styles} />
       </div>
-
-    </Layout>
     </>
   )
 }

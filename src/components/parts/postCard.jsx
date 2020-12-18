@@ -3,6 +3,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 const PostCard = (props) => {
+  
+    //component
     return (
         <article className={props.archiveStyles.postCard}>
             <Link href='#'>

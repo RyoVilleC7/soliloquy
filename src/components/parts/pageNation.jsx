@@ -1,6 +1,8 @@
 import Link from 'next/link';
 
 const PageNation = (props) => {
+  
+    //component
     return (
         <div className={props.Styles.pageNation}>
             <div><Link href={props.data.leftMenuLink}>{props.data.leftMenu}</Link></div>

@@ -1,7 +1,7 @@
-import { Store } from './store';
+import { store } from '../store';
 
-export const screenModeChange = ()=>{
-    var mode = Store.getState().screenMode;
+export const screenModeChange = () => {
+    var mode = store.getState().screenMode;
     return (
         mode ? {
             type: 'SCREENMODE_CAHNGE_DARK',
