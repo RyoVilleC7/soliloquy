@@ -3,24 +3,17 @@ import archiveStyles from '../styles/modules/archive.module.scss';
 import PageTitle from '../components/parts/pageTitle';
 import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
+import { getPosts } from '../pages/api/ghost'
+import { useEffect } from 'react'
 
-const postArray = [
-  {
-    title: 'vercelデプロイテスト',
-  },
-  {
-    title: 'post2',
-  },
-  {
-    title: 'post3',
-  },
-  {
-    title: 'post3',
-  },
-  {
-    title: 'post3',
-  }
-]
+export const getStaticProps = async () => {
+  const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
+  const posts = await res.json()
+
+    return {
+      props: { posts }
+    }
+}
 
 const pageNationObj = {
     leftMenu: "Prev",
@@ -31,7 +24,10 @@ const pageNationObj = {
     centerMenuState: false
 }
 
-export default function Home() {
+export default function Home(props) {
+
+  console.log(props.posts)
+  const posts = props.posts.posts;
   
   //pages
   return (
@@ -50,8 +46,8 @@ export default function Home() {
       <PageTitle pageTitle={'Archive'} Styles={styles} />
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
-        {postArray.map((value, key) => {
-          return <PostCard archiveStyles={archiveStyles} title={value.title} key={key} />
+        {posts.map((value, key) => {
+          return <PostCard archiveStyles={archiveStyles} slug={value.slug} title={value.title} date={value.published_at} tags={value.tags[0].name} thumbnail={value.feature_image} key={key} />
         })}
       </div>
 

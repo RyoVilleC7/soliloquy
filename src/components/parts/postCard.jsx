@@ -7,17 +7,20 @@ const PostCard = (props) => {
 
     //redux
     const screenMode = useSelector(state => state.screenMode)
+    const postDate = props.date ? props.date.substring(0,props.date.indexOf("T")) : "Date"
   
     //component
     return (
         <article className={props.archiveStyles.postCard}>
-            <Link href='#'>
+            <Link href={`posts/` + props.slug}>
                 <a>
-                <Image src={screenMode ? "/images/default-image-l.jpg" : "/images/default-image-d.jpg"} alt="default-image" width={540} height={306} />
+                {props.thumbnail ? 
+                <img src={props.thumbnail} alt={props.title} width="540" height="306" />:
+                <Image src={screenMode ? "/images/default-image-l.jpg" : "/images/default-image-d.jpg"} alt="default-image" width={540} height={306} />}
                 <div className={props.archiveStyles.postStatus}>
-                    <span className={props.archiveStyles.postDate}>2020-12-15</span>
+                    <span className={props.archiveStyles.postDate}>{postDate}</span>
                     <div className={props.archiveStyles.separator}></div>
-                    <span className={props.archiveStyles.postTags}>JavaScript</span>
+                    <span className={props.archiveStyles.postTags}>{props.tags}</span>
                 </div>
                 <h1>{props.title}</h1>
                 </a>

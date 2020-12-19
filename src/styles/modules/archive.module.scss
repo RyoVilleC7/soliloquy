@@ -18,7 +18,8 @@
 }
 
 .postCard img {
-    object-fit: cover;
+    height: auto;
+    object-fit: contain;
 }
 
 

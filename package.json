@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@tryghost/content-api": "^1.4.11",
     "next": "^10.0.3",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
