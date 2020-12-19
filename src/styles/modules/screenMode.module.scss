@@ -1,0 +1,19 @@
+@import '../foundations//variables.scss';
+
+.dark_mode {
+    color: d_color(TEXT_COLOR);
+    background-color: d_color(BC_COLOR);
+}
+
+.light_mode {
+    color: l_color(TEXT_COLOR);
+    background-color: l_color(BC_COLOR);
+}
+
+.ui_bc_dark {
+    background-color: d_color(UI_COLOR);
+}
+
+.ui_bc_light {
+    background-color: l_color(UI_COLOR);
+}

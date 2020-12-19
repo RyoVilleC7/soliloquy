@@ -1,14 +1,19 @@
 import Header from './header';
 import Footer from './footer';
+import { useSelector } from 'react-redux';
 import Styles from '../../styles/modules/layout.module.scss'
+import screenModeStyles from '../../styles/modules/screenMode.module.scss'
 
 const Layout = (props) => {
+
+  //redux
+  const screenMode = useSelector(state => state.screenMode)
   
   //component
   return (
     <>
       <Header Styles={Styles} />
-      <main className={Styles.main}>
+      <main className={"transition" + " " +Styles.main + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
         <div className={Styles.mainContainer}>
           {props.children}
         </div>

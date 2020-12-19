@@ -3,6 +3,7 @@ import Image from 'next/image';
 import MediaQuery from "react-responsive";
 import { useDispatch, useSelector } from 'react-redux';
 import { screenModeChange } from '../../store/actions/action'
+import screenModeStyles from '../../styles/modules/screenMode.module.scss'
 
 const Header = (props) => {
 
@@ -12,7 +13,7 @@ const Header = (props) => {
 
     //component
     return (
-        <header className={props.Styles.header}>
+        <header className={"transition" + " " + props.Styles.header + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
             <div className={props.Styles.container}>
                 
                 <h1>

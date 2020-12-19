@@ -1,10 +1,15 @@
 import Link from 'next/link';
+import { useSelector } from 'react-redux';
+import screenModeStyles from '../../styles/modules/screenMode.module.scss'
 
 const Footer = (props) => {
+
+    //redux
+    const screenMode = useSelector(state => state.screenMode)
   
     //component
     return (
-        <footer className={props.Styles.footer}>
+        <footer className={"transition" + " " +props.Styles.footer + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
             <div className={props.Styles.container}>
                 <ul>
                     <li><Link href="https://github.com/RyoVilleC7">GITHUB</Link></li>

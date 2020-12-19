@@ -1,11 +1,111 @@
 
+.header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .container h1 {
+  font-family: Moon;
+  font-size: 2.3rem;
+  letter-spacing: 2px;
+}
+
+.header .container ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header .container ul li {
+  list-style-type: none;
+  margin: 0 15px;
+  font-size: 1.4rem;
+  font-family: Moon;
+  letter-spacing: 2px;
+
+  img {
+    cursor: pointer;
+  }
+}
+
+.main .container {
+  padding: 30px 0;
+}
+
+.footer {
+  width: 100%;
+}
+
+.footer .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .container ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer .container ul li {
+  list-style-type: none;
+  margin: 0 15px;
+  font-size: 1.4rem;
+  font-family: Moon;
+  letter-spacing: 2px;
+}
+
+.footer .container span {
+  font-size: 1.4rem;
+  font-family: Moon;
+  letter-spacing: 2px;
+}
+
+.pageTitle {
+  text-align: center;
+}
+
+.pageTitle div {
+  width: 50px;
+  height: 1px;
+  background-color: #fff;
+  margin: 0 auto;
+}
+
+.pageNation {
+  display: inline-flex;
+  font-size: 1.4rem;
+  padding: 13px 30px;
+}
+
+.pageNation div {
+  font-size: 1.4rem;
+  font-family: "Moon";
+  letter-spacing: 2px;
+  padding: 0 10px;
+}
+
+.pageNation div:nth-child(2) {
+  border-left: 1px solid #707070;
+  border-right: 1px solid #707070;
+}
+
+.pageNationWrapper {
+  width: 100%;
+  display: inline-block;
+  text-align: center;
+}
+
 /*pcサイズ以上*/
 @media screen and (min-width: 1100px) {
 
   .header {
     width: 100%;
     height: 70px;
-    background-color: #131D24;
     box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.2);
     position: fixed;
     z-index: 10;
@@ -30,9 +130,12 @@
   .pageTitle h2 {
     font-size: 3.5rem;
     font-family: 'Moon';
-    color: #fff;
     letter-spacing: 5px;
     margin-bottom: 10px;
+  }
+
+  .footer {
+    height: 70px;
   }
 
 }
@@ -43,7 +146,6 @@
 .header {
   width: 100%;
   height: 70px;
-  background-color: #131D24;
   box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.2);
   position: fixed;
   z-index: 10;
@@ -62,9 +164,12 @@
   .pageTitle h2 {
     font-size: 3.5rem;
     font-family: 'Moon';
-    color: #fff;
     letter-spacing: 5px;
     margin-bottom: 10px;
+  }
+
+  .footer {
+    height: 70px;
   }
 }
 
@@ -74,10 +179,15 @@
   .header {
     width: 100%;
     height: 60px;
-    background-color: #131D24;
     box-shadow: 0px 5px 6px 0px rgba(0,0,0,0.2);
     position: fixed;
     z-index: 10;
+  }
+
+  .header .container h1 {
+    font-family: Moon;
+    font-size: 2rem;
+    letter-spacing: 2px;
   }
 
   .container, .mainContainer {
@@ -90,7 +200,8 @@
   }
 
   .footer {
-    margin-bottom: 30px;
+    height: 100px;
+    padding-bottom: 30px;
   }
 
   .footer .container {
@@ -103,114 +214,8 @@
   .pageTitle h2 {
     font-size: 2.5rem;
     font-family: 'Moon';
-    color: #fff;
     letter-spacing: 5px;
     margin-bottom: 10px;
   }
 
-}
-
-.header .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header .container h1 {
-  font-family: Moon;
-  font-size: 2.3rem;
-  color: #fff;
-  letter-spacing: 2px;
-}
-
-.header .container ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.header .container ul li {
-  list-style-type: none;
-  margin: 0 15px;
-  font-size: 1.4rem;
-  font-family: Moon;
-  color: #fff;
-  letter-spacing: 2px;
-}
-
-.main .container {
-  padding: 30px 0;
-}
-
-.footer {
-  width: 100%;
-  height: 70px;
-  background-color: #131D24;
-}
-
-.footer .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer .container ul {
-  list-style-type: none;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.footer .container ul li {
-  list-style-type: none;
-  margin: 0 15px;
-  font-size: 1.4rem;
-  font-family: Moon;
-  color: #fff;
-  letter-spacing: 2px;
-}
-
-.footer .container span {
-  font-size: 1.4rem;
-  font-family: Moon;
-  color: #fff;
-  letter-spacing: 2px;
-}
-
-.pageTitle {
-  text-align: center;
-}
-
-.pageTitle div {
-  width: 50px;
-  height: 1px;
-  background-color: #fff;
-  margin: 0 auto;
-}
-
-.pageNation {
-  display: inline-flex;
-  color: #fff;
-  font-size: 1.4rem;
-  padding: 13px 30px;
-  background: #1F292F;
-}
-
-.pageNation div {
-  font-size: 1.4rem;
-  font-family: "Moon";
-  letter-spacing: 2px;
-  padding: 0 10px;
-}
-
-.pageNation div:nth-child(2) {
-  border-left: 1px solid #707070;
-  border-right: 1px solid #707070;
-}
-
-.pageNationWrapper {
-  width: 100%;
-  display: inline-block;
-  text-align: center;
 }
