@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import MediaQuery from "react-responsive";
 import { useDispatch, useSelector } from 'react-redux';
 import { screenModeChange } from '../../store/actions/action'
@@ -22,11 +21,11 @@ const Header = (props) => {
 
                 <MediaQuery query="(min-width: 600px)">
                     <ul className={props.Styles.header_menu_wrapper}>
-                        <li><Link href='#'>ABOUT</Link></li>
+                        <li><Link href='/about'>ABOUT</Link></li>
                         <li><Link href='#'>ARCHIVE</Link></li>
                         <li><Link href='#'>SEARCH</Link></li>
                         <li onClick={() => {dispatch(screenModeChange())}}>
-                            <Image src={ screenMode ? "/images/light-mode.svg" : "/images/dark-mode.svg"} alt={ props.screenMode ? "ライトモード" : "ダークモード"} width={20} height={20} />
+                            <img src={ screenMode ? "/images/light-mode.svg" : "/images/dark-mode.svg"} alt={ props.screenMode ? "ライトモード" : "ダークモード"} width={20} height={20} />
                         </li>
                     </ul>
                 </MediaQuery>
