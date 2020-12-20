@@ -1,5 +1,5 @@
 export const initialState = {
-    screenMode: false
+    screenMode: true
 }
 
 export const reducer = function(state = initialState, action){

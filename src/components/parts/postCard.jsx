@@ -14,11 +14,11 @@ const PostCard = (props) => {
                 <a>
                 {props.thumbnail ? 
                 <img src={props.thumbnail} alt={props.title} width="540" height="306" />:
-                <img src={screenMode ? "/images/default-image-l.jpg" : "/images/default-image-d.jpg"} alt="default-image" width={540} height={306} />}
+                <img src="/images/default-image.jpg" alt="default-image" width="540" height="306" />}
                 <div className={props.archiveStyles.postStatus}>
                     <span className={props.archiveStyles.postDate}>{postDate}</span>
                     <div className={props.archiveStyles.separator}></div>
-                    <span className={props.archiveStyles.postTags}>{props.tags}</span>
+                    <span className={props.archiveStyles.postTags}>{props.tags ? props.tags : "tag"}</span>
                 </div>
                 <h1>{props.title}</h1>
                 </a>

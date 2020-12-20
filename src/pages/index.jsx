@@ -25,7 +25,7 @@ const pageNationObj = {
 }
 
 export default function Home(props) {
-  
+
   const posts = props.posts.posts;
   
   //pages
@@ -37,7 +37,7 @@ export default function Home(props) {
             Soliloquy
           </dt>
           <dd>
-            都内勤務フロントエンドエンジニアの独り言技術ブログ
+            とあるWebエンジニアの生活雑貨＆ガジェットまとめブログ
           </dd>
         </dl>
       </div>
