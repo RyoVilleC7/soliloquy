@@ -70,7 +70,7 @@ export default function Post(props) {
   //pages
   return (
     <>
-    <BreadCrumb title={"タイトル"} />
+    <BreadCrumb title={postData.title} />
     <PageTitle pageTitle={"POST"} Styles={styles} />
 
     <article className={PostStyles.article}>
