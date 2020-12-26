@@ -3,8 +3,6 @@ import archiveStyles from '../styles/modules/archive.module.scss';
 import PageTitle from '../components/parts/pageTitle';
 import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
-import { getPosts } from '../pages/api/ghost'
-import { useEffect } from 'react'
 
 export const getStaticProps = async () => {
   const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
@@ -25,7 +23,7 @@ const pageNationObj = {
 }
 
 export default function Home(props) {
-    
+
   const posts = props.posts.posts;
   
   //pages
