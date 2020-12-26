@@ -1,3 +1,4 @@
+import "prismjs/themes/prism-okaidia.css";
 import '../styles/foundations/globals.scss'
 import '../styles/foundations/reset.scss' 
 import Layout from '../components/basic/layout'

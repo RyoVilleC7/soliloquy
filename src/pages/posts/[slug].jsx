@@ -3,8 +3,10 @@ import archiveStyles from '../../styles/modules/archive.module.scss';
 import BreadCrumb from '../../components/parts/breadcrumb'
 import PageTitle from '../../components/parts/pageTitle';
 import PageNation from '../../components/parts/pageNation';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import PostStyles from '../../styles/modules/post.module.scss'
+import Prism from 'prismjs'
 
 export async function getStaticPaths() {
   const response = await fetch(
@@ -47,6 +49,7 @@ const pageNationObj = {
 }
 
 export default function Post(props) {
+
   const post = props.posts[0];
   const postData = {
     title: post.title,
@@ -59,6 +62,10 @@ export default function Post(props) {
 
   //redux
   const screenMode = useSelector(state => state.screenMode)
+
+    useEffect(() => {
+        Prism.highlightAll();
+    },[]);
   
   //pages
   return (

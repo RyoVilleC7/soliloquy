@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { useEffect } from 'react'
 import { useSelector } from 'react-redux';
 
 const PostCard = (props) => {

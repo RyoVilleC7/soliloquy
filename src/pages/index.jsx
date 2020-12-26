@@ -5,6 +5,7 @@ import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
 import { getPosts } from '../pages/api/ghost'
 import { useEffect } from 'react'
+import "prismjs/themes/prism-tomorrow.css"
 
 export const getStaticProps = async () => {
   const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
@@ -37,7 +38,7 @@ export default function Home(props) {
             Soliloquy
           </dt>
           <dd>
-            とあるWebエンジニアの生活雑貨＆ガジェットまとめブログ
+            とあるWebエンジニアの生活雑貨&ガジェット&技術ブログ
           </dd>
         </dl>
       </div>

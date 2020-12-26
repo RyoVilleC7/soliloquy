@@ -53,3 +53,19 @@ a {
 .transition {
   transition: .3s;
 }
+
+pre {
+  border-radius: 5px !important;
+}
+
+code {
+  font-size: 16px !important;
+  font-family: NotoSansJP !important;
+  letter-spacing: 2px;
+  padding: 20px !important;
+  span {
+    font-size: 16px !important;
+    font-family: NotoSansJP !important;
+    letter-spacing: 2px;
+  }
+}
