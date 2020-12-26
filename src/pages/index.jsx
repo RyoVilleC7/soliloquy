@@ -3,8 +3,6 @@ import archiveStyles from '../styles/modules/archive.module.scss';
 import PageTitle from '../components/parts/pageTitle';
 import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
-import { getPosts } from '../pages/api/ghost'
-import { useEffect } from 'react'
 import "prismjs/themes/prism-tomorrow.css"
 
 export const getStaticProps = async () => {
