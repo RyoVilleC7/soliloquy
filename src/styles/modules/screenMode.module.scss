@@ -11,9 +11,11 @@
 }
 
 .ui_bc_dark {
+    color: d_color(TEXT_COLOR);
     background-color: d_color(UI_COLOR);
 }
 
 .ui_bc_light {
+    color: l_color(TEXT_COLOR);
     background-color: l_color(UI_COLOR);
 }

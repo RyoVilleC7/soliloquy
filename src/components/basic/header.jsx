@@ -21,8 +21,8 @@ const Header = (props) => {
 
                 <MediaQuery query="(min-width: 600px)">
                     <ul className={props.Styles.header_menu_wrapper}>
-                        <li><Link href='/about'>ABOUT</Link></li>
-                        <li><Link href='#'>ARCHIVE</Link></li>
+                        {/*<li><Link href='/about'>ABOUT</Link></li>*/}
+                        <li><Link href='/'>ARCHIVE</Link></li>
                         {/*<li><Link href='#'>SEARCH</Link></li>*/}
                         <li onClick={() => {dispatch(screenModeChange())}}>
                             <img src={ screenMode ? "/images/light-mode.svg" : "/images/dark-mode.svg"} alt={ props.screenMode ? "ライトモード" : "ダークモード"} width={20} height={20} />

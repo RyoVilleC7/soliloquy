@@ -3,24 +3,17 @@ import archiveStyles from '../styles/modules/archive.module.scss';
 import PageTitle from '../components/parts/pageTitle';
 import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
+import AuthorBox from '../components/parts/authorBox';
 import "prismjs/themes/prism-tomorrow.css"
 
 export const getStaticProps = async () => {
   const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
   const posts = await res.json()
+  const pagination = posts.meta.pagination;
 
     return {
-      props: { posts }
+      props: { posts,pagination }
     }
-}
-
-const pageNationObj = {
-    leftMenu: "Prev",
-    leftMenuLink: "#",
-    rightMenu: "Next",
-    rightMenuLink: "#",
-    centerMenu: "1/3",
-    centerMenuState: false
 }
 
 export default function Home(props) {
@@ -41,7 +34,7 @@ export default function Home(props) {
         </dl>
       </div>
 
-      <PageTitle pageTitle={'Archive'} Styles={styles} />
+      <PageTitle pageTitle={'Archive'} />
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
         {posts.map((value, key) => {
@@ -50,7 +43,11 @@ export default function Home(props) {
       </div>
 
       <div className={styles.pageNationWrapper}>
-        <PageNation data={pageNationObj} Styles={styles} />
+        <PageNation data={props.pagination} />
+      </div>
+
+      <div className={styles.authorBoxWrapper}>
+        <AuthorBox />
       </div>
     </>
   )

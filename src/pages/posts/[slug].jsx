@@ -3,6 +3,8 @@ import archiveStyles from '../../styles/modules/archive.module.scss';
 import BreadCrumb from '../../components/parts/breadcrumb'
 import PageTitle from '../../components/parts/pageTitle';
 import PageNation from '../../components/parts/pageNation';
+import Button from '../../components/parts/button';
+import AuthorBox from '../../components/parts/authorBox';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import PostStyles from '../../styles/modules/post.module.scss'
@@ -88,8 +90,12 @@ export default function Post(props) {
     </article>
 
     <div className={styles.pageNationWrapper}>
-        <PageNation data={pageNationObj} Styles={styles} />
+      <Button text="記事一覧へ戻る" link="/" />
     </div>
+
+      <div className={styles.authorBoxWrapper}>
+        <AuthorBox />
+      </div>
 
     </>
   )
