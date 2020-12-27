@@ -8,8 +8,6 @@ const PageNation = (props) => {
     //redux
     const screenMode = useSelector(state => state.screenMode)
 
-    console.log(props.data)
-
     const pn = {
         leftMenu: "Prev",
         leftMenuLink: props.data.prev ? `/archive/${props.data.page - 1}` : null,

@@ -1,18 +1,18 @@
-import styles from '../../styles/modules/layout.module.scss';
-import archiveStyles from '../../styles/modules/archive.module.scss';
-import BreadCrumb from '../../components/parts/breadcrumb'
-import PageTitle from '../../components/parts/pageTitle';
-import PageNation from '../../components/parts/pageNation';
-import Button from '../../components/parts/button';
-import AuthorBox from '../../components/parts/authorBox';
+import styles from '../../../styles/modules/layout.module.scss';
+import archiveStyles from '../../../styles/modules/archive.module.scss';
+import BreadCrumb from '../../../components/parts/breadcrumb'
+import PageTitle from '../../../components/parts/pageTitle';
+import PageNation from '../../../components/parts/pageNation';
+import Button from '../../../components/parts/button';
+import AuthorBox from '../../../components/parts/authorBox';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import PostStyles from '../../styles/modules/post.module.scss'
+import PostStyles from '../../../styles/modules/post.module.scss'
 import Prism from 'prismjs'
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags'
+    'https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&limit=all'
   )
   const postList = await response.json();
   const posts = postList.posts;

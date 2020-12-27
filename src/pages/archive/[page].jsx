@@ -68,7 +68,7 @@ export default function Homes(props) {
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
         {props.posts.map((value, key) => {
-          return <PostCard archiveStyles={archiveStyles} slug={value.slug} title={value.title} date={value.published_at} tags={value.tags[0].name ? value.tags[0].name : "tags"} thumbnail={value.feature_image} key={key} />
+          return <PostCard archiveStyles={archiveStyles} slug={"posts/" + value.slug} title={value.title} date={value.published_at} tags={value.tags[0].name ? value.tags[0].name : "tags"} thumbnail={value.feature_image} key={key} />
         })}
       </div>
 

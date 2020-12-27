@@ -10,7 +10,7 @@ const PostCard = (props) => {
     //component
     return (
         <article className={props.archiveStyles.postCard}>
-            <Link href={`posts/` + props.slug}>
+            <Link href={props.slug}>
                 <a>
                 {props.thumbnail ? 
                 <img src={props.thumbnail} alt={props.title} width="540" height="306" />:
