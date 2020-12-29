@@ -1,14 +1,16 @@
 import Link from 'next/link';
 import MediaQuery from "react-responsive";
 import { useDispatch, useSelector } from 'react-redux';
-import { screenModeChange } from '../../store/actions/action'
+import { screenModeChange, spNavChange } from '../../store/actions/action'
 import screenModeStyles from '../../styles/modules/screenMode.module.scss'
+import PageTitle from '../parts/pageTitle';
 
 const Header = (props) => {
 
     //redux
     const dispatch = useDispatch();
     const screenMode = useSelector(state => state.screenMode)
+    const spNavState = useSelector(state => state.spNav)
 
     //component
     return (
@@ -31,10 +33,21 @@ const Header = (props) => {
                 </MediaQuery>
 
                 <MediaQuery query="(max-width: 599px)">
-                    <div className={props.Styles.sp_menu}></div>
+                    <div className={spNavState ? props.Styles.sp_menu_open : props.Styles.sp_menu_close} onClick={() => dispatch(spNavChange())}>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
                 </MediaQuery>
                 
             </div>
+
+            <MediaQuery query="(max-width: 599px)">
+                <div className={props.Styles.sp_nav + " " + (spNavState ? "nav_in" : "nav_out")}>
+                    <PageTitle pageTitle={'Menu'} />
+                </div>
+            </MediaQuery>
+
         </header>
     );
   };

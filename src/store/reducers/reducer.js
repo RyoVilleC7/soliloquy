@@ -1,5 +1,6 @@
 export const initialState = {
-    screenMode: true
+    screenMode: true,
+    spNav: false
 }
 
 export const reducer = function(state = initialState, action){
@@ -15,6 +16,18 @@ export const reducer = function(state = initialState, action){
                     ...state,
                     screenMode: false
                 }
+        
+        case 'SP_NAV_OPEN':
+            return {
+                ...state,
+                spNav: true
+            }
+
+        case 'SP_NAV_CLOSE':
+            return {
+                ...state,
+                spNav: false
+            }
     
         default:
             return state;

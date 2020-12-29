@@ -12,3 +12,16 @@ export const screenModeChange = () => {
         }
     );
 }
+
+export const spNavChange = () => {
+    var mode = store.getState().spNav;
+    return (
+        mode ? {
+            type: 'SP_NAV_CLOSE',
+            value: false
+        } : {
+            type: 'SP_NAV_OPEN',
+            value: true
+        }
+    );
+}

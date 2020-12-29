@@ -54,6 +54,16 @@ a {
   transition: .3s;
 }
 
+.nav_in {
+  right: 0;
+  opacity: 1;
+}
+
+.nav_out {
+  right: 100%;
+  opacity: 0;
+}
+
 pre {
   border-radius: 5px !important;
 }
