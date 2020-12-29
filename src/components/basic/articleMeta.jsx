@@ -13,6 +13,8 @@ const ArticleMeta = (props) => {
             <meta property="og:image" content={props.thumbnail} />
             <meta property="og:site_name" content={props.title} />
             <meta property="og:description" content={props.excerpt} />
+            <meta name="twitter:card" content="summary_large_image" />
+            <meta name="twitter:site" content="@ryotaro_WAVES" />
         </Head>
     )
 }
