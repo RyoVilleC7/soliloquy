@@ -17,7 +17,7 @@ const Header = (props) => {
         <header className={"transition" + " " + props.Styles.header + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
             <div className={props.Styles.container}>
                 
-                <h1>
+                <h1 onClick={() => { if(spNavState){ dispatch(spNavChange()) }}}>
                     <Link href="/">Soliloquy</Link>
                 </h1>
 
