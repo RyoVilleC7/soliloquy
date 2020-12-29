@@ -2,7 +2,7 @@ import styles from '../../../styles/modules/layout.module.scss';
 import archiveStyles from '../../../styles/modules/archive.module.scss';
 import BreadCrumb from '../../../components/parts/breadcrumb'
 import PageTitle from '../../../components/parts/pageTitle';
-import PageNation from '../../../components/parts/pageNation';
+import ArticleMeta from '../../../components/basic/articleMeta';
 import Button from '../../../components/parts/button';
 import AuthorBox from '../../../components/parts/authorBox';
 import { useEffect } from 'react';
@@ -40,21 +40,13 @@ export async function getStaticProps({params}) {
   }
 }
 
-const pageNationObj = {
-    leftMenu: "前の記事へ",
-    leftMenuLink: "#",
-    rightMenu: "次の記事へ",
-    rightMenuLink: "#",
-    centerMenu: "記事一覧へ",
-    centerMenuState: true,
-    centerMenuLink: "#"
-}
-
 export default function Post(props) {
 
   const post = props.posts[0];
   const postData = {
     title: post.title,
+    slug: post.slug,
+    excerpt: post.excerpt,
     date: post.published_at,
     tag: post.tags[0].name,
     thumbnail: post.feature_image,
@@ -72,6 +64,7 @@ export default function Post(props) {
   //pages
   return (
     <>
+    <ArticleMeta title={postData.title} excerpt={postData.excerpt} slug={postData.slug} thumbnail={postData.thumbnail}/>
     <BreadCrumb title={postData.title} />
     <PageTitle pageTitle={"POST"} Styles={styles} />
 

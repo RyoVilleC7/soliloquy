@@ -4,6 +4,7 @@ import PageTitle from '../../components/parts/pageTitle';
 import PostCard from '../../components/parts/postCard';
 import PageNation from '../../components/parts/pageNation';
 import AuthorBox from '../../components/parts/authorBox';
+import Meta from '../../components/basic/meta';
 
 export async function getStaticPaths() {
 
@@ -53,6 +54,7 @@ export default function Homes(props) {
   //pages
   return (
     <>
+      <Meta />
       <div className={archiveStyles.archiveTopLogoWrapper}>
         <dl className={archiveStyles.archiveTopLogo}>
           <dt>

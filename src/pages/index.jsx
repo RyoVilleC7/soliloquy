@@ -4,6 +4,7 @@ import PageTitle from '../components/parts/pageTitle';
 import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
 import AuthorBox from '../components/parts/authorBox';
+import Meta from '../components/basic/meta';
 import "prismjs/themes/prism-tomorrow.css"
 
 export const getStaticProps = async () => {
@@ -23,6 +24,7 @@ export default function Home(props) {
   //pages
   return (
     <>
+    <Meta />
       <div className={archiveStyles.archiveTopLogoWrapper}>
         <dl className={archiveStyles.archiveTopLogo}>
           <dt>
