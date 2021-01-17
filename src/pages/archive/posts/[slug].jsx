@@ -12,7 +12,8 @@ import Prism from 'prismjs'
 
 export async function getStaticPaths() {
   const response = await fetch(
-    'https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&limit=all'
+    //'https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&limit=all'
+    'http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags&limit=all'
   )
   const postList = await response.json();
   const posts = postList.posts;
@@ -32,7 +33,8 @@ export async function getStaticPaths() {
 export async function getStaticProps({params}) {
   // fetch single post detail
   const response = await fetch(
-    `https://ryotarohada.ghost.io/ghost/api/v3/content/posts/slug/${params.slug}/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`
+    //`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/slug/${params.slug}/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`
+    `http://localhost:2371/ghost/api/v3/content/posts/slug/${params.slug}/?key=7fa0d0afb3e2820e637a3562fe&include=tags`
   )
   const post = await response.json();
   return {
@@ -57,9 +59,10 @@ export default function Post(props) {
   //redux
   const screenMode = useSelector(state => state.screenMode)
 
-    useEffect(() => {
-        Prism.highlightAll();
-    },[]);
+  //prism.js
+  useEffect(() => {
+      Prism.highlightAll();
+  },[]);
   
   //pages
   return (

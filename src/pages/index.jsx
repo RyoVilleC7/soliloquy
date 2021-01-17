@@ -1,6 +1,7 @@
 import styles from '../styles/modules/layout.module.scss';
 import archiveStyles from '../styles/modules/archive.module.scss';
 import PageTitle from '../components/parts/pageTitle';
+import SortBtn from '../components/parts/sortBtn';
 import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
 import AuthorBox from '../components/parts/authorBox';
@@ -8,7 +9,8 @@ import Meta from '../components/basic/meta';
 import "prismjs/themes/prism-tomorrow.css"
 
 export const getStaticProps = async () => {
-  const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
+  //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
+  const res = await fetch('http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags')
   const posts = await res.json()
   const pagination = posts.meta.pagination;
 
@@ -36,7 +38,10 @@ export default function Home(props) {
         </dl>
       </div>
 
+    <div className={archiveStyles.pageTitle_sort_wrapper}>
       <PageTitle pageTitle={'Archive'} />
+      <SortBtn />
+    </div>
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
         {posts.map((value, key) => {

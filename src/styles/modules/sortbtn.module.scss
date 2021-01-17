@@ -1,0 +1,64 @@
+@import '../foundations/variables.scss';
+
+.sortbtn {
+    position: absolute;
+    font-family: "Moon";
+    top: 10px;
+    right: 0;
+    cursor: pointer;
+
+    span {
+        font-size: 1.4rem;
+        letter-spacing: 1px;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+
+        li {
+            font-size: 1.4rem;
+            letter-spacing: 1px;
+        }
+    }
+}
+
+.sortbtn_view {
+    border-bottom: 1px solid d_color(BC_COLOR);
+    padding-bottom: 3px;
+    margin-bottom: 15px;
+
+    span {
+    }
+
+    svg {
+        margin: 0 0 2px 5px;
+
+        path {
+            fill: d_color(BC_COLOR);
+        }
+    }
+}
+
+.sortbtn_lists {
+    min-width: 150px;
+    position: absolute;
+    right: 0;
+    background-color: d_color(BC_COLOR);
+    color: d_color(TEXT_COLOR);
+
+    ul {
+        list-style-type: none;
+        padding: 10px 0;
+
+        li {
+            padding: 5px 20px;
+
+            &:hover {
+                background-color: d_color(HOVER_COLOR);
+                transition: .3s;
+                cursor: pointer;
+            }
+        }
+    }
+}

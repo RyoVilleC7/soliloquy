@@ -1,6 +1,7 @@
 export const initialState = {
     screenMode: true,
-    spNav: false
+    spNav: false,
+    sortBtn_cat: false
 }
 
 export const reducer = function(state = initialState, action){
@@ -28,6 +29,18 @@ export const reducer = function(state = initialState, action){
                 ...state,
                 spNav: false
             }
+        
+            case 'SORTBTN_CAT_OPEN':
+                return {
+                    ...state,
+                    sortBtn_cat: true
+                }
+    
+            case 'SORTBTN_CAT_CLOSE':
+                return {
+                    ...state,
+                    sortBtn_cat: false
+                }
     
         default:
             return state;

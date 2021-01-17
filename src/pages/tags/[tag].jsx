@@ -8,44 +8,70 @@ import Meta from '../../components/basic/meta';
 
 export async function getStaticPaths() {
 
-  const pageArray = [];
-  const getPostsLimit = 15;
-  //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&limit=all`);
-  const res = await fetch('http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags&limit=all')
-  const posts = await res.json();
-  const pagination = await posts.meta.pagination;
-  const allPostLength = Math.ceil(Number(posts.posts.length) / getPostsLimit);
-
-  for (let i = 0; i < allPostLength; i++) {
-    //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&page=${i}`);
-    const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags&page=${i}`)
-    const posts = await res.json();
-    pageArray.push(posts);
+  // タグ一覧取得
+  const tagsArray = [];
+  const tagsData = await fetch('http://localhost:2371/ghost/api/v3/content/tags/?key=7fa0d0afb3e2820e637a3562fe');
+  const tagsList = await tagsData.json();
+  for (let i = 0; i < tagsList.tags.length; i++) {
+    tagsArray.push(tagsList.tags[i].slug);
   }
 
+  // タグ毎の一覧ページパス出力
+  const pageArray = [];
+  const getPostsLimit = 15;
+
+  // 15記事を一単位としたぺージ数を算出
+  for (let i = 0; i < tagsArray.length; i++) {
+    const categoryArray = [];
+    const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&filter=tag:${tagsArray[i]}&limit=all`)
+    const posts = await res.json();
+    const allPostLength = Math.ceil(Number(posts.posts.length) / getPostsLimit);
+  
+    for (let _i = 0; _i < allPostLength; _i++) {
+      const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&filter=tag:${tagsArray[i]}&page=${_i + 1}`)
+      const posts = await res.json();
+      categoryArray.push(posts)
+    }
+
+    pageArray.push(categoryArray);
+  }
+
+  const paramsArray = [];
+
+  for (let i = 0; i < pageArray.length; i++) {
+    let tagName = tagsArray[i];
+      pageArray[i].map((posts, index) => {
+        const pageString = index + 1;
+        let pageName;
+        pageName = tagName + '-' + (index + 1);
+        paramsArray.push(
+          {params: {
+            tag: pageName.toString(),
+            page: pageString.toString(),
+            tagName: tagName
+          }})
+      })
+  }
+  
   return {
-    paths: pageArray.map((post, index) => {
-      const str = index + 1;
-      const posts = post.posts[index];
-      return {
-        params: {
-          page: str.toString()
-        },
-      }
-    }),
+    paths: paramsArray,
     fallback: false,
   }
 }
 
 export async function getStaticProps({params}) {
-  //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&page=${params.page}`);
-  const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags&page=${params.page}`)
+
+  const keyword = params.tag
+  const strIndex = keyword.lastIndexOf('-');
+  const page = keyword.slice(strIndex + 1)
+  const tagName = keyword.slice(0, strIndex)
+
+  const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&filter=tag:${tagName}&include=tags&page=${page}`)
   const data = await res.json();
   const posts = data.posts;
   const pagination = data.meta.pagination;
     return {
       props: {
-        page: params.page,
         posts: posts,
         pagination: pagination
       }

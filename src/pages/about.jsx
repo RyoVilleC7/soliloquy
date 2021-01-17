@@ -5,7 +5,8 @@ import PostCard from '../components/parts/postCard';
 import PageNation from '../components/parts/pageNation';
 
 export const getStaticProps = async () => {
-  const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
+  //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
+  const res = await fetch('http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags')
   const posts = await res.json()
 
     return {
@@ -19,6 +20,7 @@ const pageNationObj = {
     rightMenu: "Next",
     rightMenuLink: "#",
     centerMenu: "1/3",
+    centerMenuLink: "#",
     centerMenuState: false
 }
 
