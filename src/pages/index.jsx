@@ -7,16 +7,17 @@ import PageNation from '../components/parts/pageNation';
 import AuthorBox from '../components/parts/authorBox';
 import Meta from '../components/basic/meta';
 import "prismjs/themes/prism-tomorrow.css"
+import { API_URL, CONTENT_API_KEY } from '../functions/api';
 
 export const getStaticProps = async () => {
   //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags`)
-  const res = await fetch('http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags')
+  const res = await fetch(`${API_URL}ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&include=tags`)
   const posts = await res.json()
   const pagination = posts.meta.pagination;
 
   // タグ一覧取得
   const tagsArray = [];
-  const tagsData = await fetch('http://localhost:2371/ghost/api/v3/content/tags/?key=7fa0d0afb3e2820e637a3562fe');
+  const tagsData = await fetch(`${API_URL}ghost/api/v3/content/tags/?key=${CONTENT_API_KEY}`);
   const tagsList = await tagsData.json();
   for (let i = 0; i < tagsList.tags.length; i++) {
     tagsArray.push(tagsList.tags[i].slug);

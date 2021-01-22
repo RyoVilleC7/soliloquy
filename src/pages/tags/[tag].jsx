@@ -6,12 +6,13 @@ import PostCard from '../../components/parts/postCard';
 import PageNation from '../../components/parts/pageNation';
 import AuthorBox from '../../components/parts/authorBox';
 import Meta from '../../components/basic/meta';
+import { API_URL, CONTENT_API_KEY } from '../../functions/api';
 
 export async function getStaticPaths() {
 
   // タグ一覧取得
   const tagsArray = [];
-  const tagsData = await fetch('http://localhost:2371/ghost/api/v3/content/tags/?key=7fa0d0afb3e2820e637a3562fe');
+  const tagsData = await fetch(`${API_URL}ghost/api/v3/content/tags/?key=${CONTENT_API_KEY}`);
   const tagsList = await tagsData.json();
   for (let i = 0; i < tagsList.tags.length; i++) {
     tagsArray.push(tagsList.tags[i].slug);
@@ -24,12 +25,12 @@ export async function getStaticPaths() {
   // 15記事を一単位としたぺージ数を算出
   for (let i = 0; i < tagsArray.length; i++) {
     const categoryArray = [];
-    const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&filter=tag:${tagsArray[i]}&limit=all`)
+    const res = await fetch(`${API_URL}ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&filter=tag:${tagsArray[i]}&limit=all`)
     const posts = await res.json();
     const allPostLength = Math.ceil(Number(posts.posts.length) / getPostsLimit);
   
     for (let _i = 0; _i < allPostLength; _i++) {
-      const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&filter=tag:${tagsArray[i]}&page=${_i + 1}`)
+      const res = await fetch(`${API_URL}ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&filter=tag:${tagsArray[i]}&page=${_i + 1}`)
       const posts = await res.json();
       categoryArray.push(posts)
     }
@@ -68,14 +69,14 @@ export async function getStaticProps({params}) {
   const page = keyword.slice(strIndex + 1)
   const tagName = keyword.slice(0, strIndex)
 
-  const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&filter=tag:${tagName}&include=tags&page=${page}`)
+  const res = await fetch(`${API_URL}ghost/api/v3/content/posts/?key=${CONTENT_API_KEY}&filter=tag:${tagName}&include=tags&page=${page}`)
   const data = await res.json();
   const posts = data.posts;
   const pagination = data.meta.pagination;
 
   // タグ一覧取得
   const tagsArray = [];
-  const tagsData = await fetch('http://localhost:2371/ghost/api/v3/content/tags/?key=7fa0d0afb3e2820e637a3562fe');
+  const tagsData = await fetch(`${API_URL}ghost/api/v3/content/tags/?key=${CONTENT_API_KEY}`);
   const tagsList = await tagsData.json();
   for (let i = 0; i < tagsList.tags.length; i++) {
     tagsArray.push(tagsList.tags[i].slug);
@@ -115,7 +116,7 @@ export default function Homes(props) {
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
         {props.posts.map((value, key) => {
-          return <PostCard archiveStyles={archiveStyles} slug={"posts/" + value.slug} title={value.title} date={value.published_at} tags={value.tags[0].name ? value.tags[0].name : "tags"} thumbnail={value.feature_image} key={key} />
+          return <PostCard archiveStyles={archiveStyles} slug={"../archive/posts/" + value.slug} title={value.title} date={value.published_at} tags={value.tags[0].name ? value.tags[0].name : "tags"} thumbnail={value.feature_image} key={key} />
         })}
       </div>
 
