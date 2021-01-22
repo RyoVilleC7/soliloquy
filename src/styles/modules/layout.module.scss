@@ -305,11 +305,19 @@
     align-items: center;
   }
 
-  .pageTitle h2 {
-    font-size: 2.5rem;
-    font-family: 'Moon';
-    letter-spacing: 5px;
-    margin-bottom: 10px;
+  .pageTitle {
+    text-align: left;
+    
+    h2 {
+      font-size: 2.5rem;
+      font-family: 'Moon';
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+    }
+
+    div {
+      margin: 0;
+    }
   }
 
   .pageNation {

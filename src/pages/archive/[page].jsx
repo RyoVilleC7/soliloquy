@@ -1,6 +1,7 @@
 import styles from '../../styles/modules/layout.module.scss';
 import archiveStyles from '../../styles/modules/archive.module.scss';
 import PageTitle from '../../components/parts/pageTitle';
+import SortBtn from '../../components/parts/sortBtn';
 import PostCard from '../../components/parts/postCard';
 import PageNation from '../../components/parts/pageNation';
 import AuthorBox from '../../components/parts/authorBox';
@@ -10,14 +11,11 @@ export async function getStaticPaths() {
 
   const pageArray = [];
   const getPostsLimit = 15;
-  //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&limit=all`);
   const res = await fetch('http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags&limit=all')
   const posts = await res.json();
-  const pagination = await posts.meta.pagination;
   const allPostLength = Math.ceil(Number(posts.posts.length) / getPostsLimit);
 
   for (let i = 0; i < allPostLength; i++) {
-    //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&page=${i}`);
     const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags&page=${i}`)
     const posts = await res.json();
     pageArray.push(posts);
@@ -26,7 +24,6 @@ export async function getStaticPaths() {
   return {
     paths: pageArray.map((post, index) => {
       const str = index + 1;
-      const posts = post.posts[index];
       return {
         params: {
           page: str.toString()
@@ -38,16 +35,27 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({params}) {
-  //const res = await fetch(`https://ryotarohada.ghost.io/ghost/api/v3/content/posts/?key=7d660b12a28e4caff2f7ebe8dc&include=tags&page=${params.page}`);
+  
+  // ポスト取得
   const res = await fetch(`http://localhost:2371/ghost/api/v3/content/posts/?key=7fa0d0afb3e2820e637a3562fe&include=tags&page=${params.page}`)
   const data = await res.json();
   const posts = data.posts;
   const pagination = data.meta.pagination;
+
+  // タグ一覧取得
+  const tagsArray = [];
+  const tagsData = await fetch('http://localhost:2371/ghost/api/v3/content/tags/?key=7fa0d0afb3e2820e637a3562fe');
+  const tagsList = await tagsData.json();
+  for (let i = 0; i < tagsList.tags.length; i++) {
+    tagsArray.push(tagsList.tags[i].slug);
+  }
+
     return {
       props: {
         page: params.page,
         posts: posts,
-        pagination: pagination
+        pagination: pagination,
+        tagsArray
       }
     }
 }
@@ -69,7 +77,10 @@ export default function Homes(props) {
         </dl>
       </div>
 
-      <PageTitle pageTitle={'Archive'} />
+<div className={archiveStyles.pageTitle_sort_wrapper}>
+  <PageTitle pageTitle={'Archive'} />
+  <SortBtn tags={props.tagsArray}/>
+</div>
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
         {props.posts.map((value, key) => {
@@ -78,7 +89,7 @@ export default function Homes(props) {
       </div>
 
       <div className={styles.pageNationWrapper}>
-        <PageNation data={props.pagination} />
+        <PageNation data={props.pagination} pageName={"archive"} />
       </div>
 
       <div className={styles.authorBoxWrapper}>

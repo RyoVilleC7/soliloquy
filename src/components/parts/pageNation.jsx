@@ -8,11 +8,12 @@ const PageNation = (props) => {
     //redux
     const screenMode = useSelector(state => state.screenMode)
 
+    //pagination
     const pn = {
         leftMenu: "Prev",
-        leftMenuLink: props.data.prev ? `/archive/${props.data.page - 1}` : null,
+        leftMenuLink: props.data.prev ? `/${props.pageName}/${props.tagName ? props.tagName + '-' + (props.data.page - 1) : props.data.page - 1}` : null,
         rightMenu: "Next",
-        rightMenuLink: props.data.next ? `/archive/${props.data.page + 1}` : null,
+        rightMenuLink: props.data.next ? `/${props.pageName}/${props.tagName ? props.tagName + '-' + (props.data.page + 1) : props.data.page + 1}` : null,
         centerMenu: `${props.data.page}/${props.data.pages}`,
         centerMenuState: false
     }

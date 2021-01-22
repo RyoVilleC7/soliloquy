@@ -41,7 +41,7 @@
 }
 
 .sortbtn_lists {
-    min-width: 150px;
+    min-width: 200px;
     position: absolute;
     right: 0;
     background-color: d_color(BC_COLOR);
@@ -52,12 +52,16 @@
         padding: 10px 0;
 
         li {
-            padding: 5px 20px;
 
             &:hover {
                 background-color: d_color(HOVER_COLOR);
                 transition: .3s;
                 cursor: pointer;
+            }
+
+            a { 
+                display: block;
+                padding: 5px 20px;
             }
         }
     }

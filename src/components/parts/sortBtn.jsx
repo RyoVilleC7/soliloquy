@@ -5,7 +5,7 @@ import { sortBtn_cat_Change, sortBtn_falseOnly_Change } from '../../store/action
 import styles from '../../styles/modules/sortbtn.module.scss';
 import {store} from '../../store/store';
 
-const SortBtn = () => {
+const SortBtn = (props) => {
 
     const sortBtnRef = useRef(null);
     const documentClickHandler = useRef(null)
@@ -39,7 +39,7 @@ const SortBtn = () => {
         <div className={styles.sortbtn} onClick={handleToggleButtonClick}>
 
             <div className={styles.sortbtn_view} ref={sortBtnRef}>
-                <span>Category</span>
+                <span>{props.viewText ? props.viewText : "category"}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9.184" height="4.592" viewBox="0 0 9.184 4.592">
                     <path id="パス_7" data-name="パス 7" d="M7,10l4.592,4.592L16.184,10Z" transform="translate(-7 -10)" fill="#fff"/>
                 </svg>
@@ -47,11 +47,9 @@ const SortBtn = () => {
 
             <div className={styles.sortbtn_lists} style={sortBtnCatState ? {display: "block"} : {display: "none"}}>
                 <ul>
-                    <li><Link href="/">category</Link></li>
-                    <li><Link href="/">category</Link></li>
-                    <li><Link href="/">category</Link></li>
-                    <li><Link href="/">category</Link></li>
-                    <li><Link href="/">category</Link></li>
+                    {props.tags.map(( value ) => {
+                        return <li><Link href={"/tags/" + value + "-1"}>{value}</Link></li>
+                    })}
                 </ul>
             </div>
 

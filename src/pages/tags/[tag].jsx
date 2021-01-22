@@ -1,6 +1,7 @@
 import styles from '../../styles/modules/layout.module.scss';
 import archiveStyles from '../../styles/modules/archive.module.scss';
 import PageTitle from '../../components/parts/pageTitle';
+import SortBtn from '../../components/parts/sortBtn';
 import PostCard from '../../components/parts/postCard';
 import PageNation from '../../components/parts/pageNation';
 import AuthorBox from '../../components/parts/authorBox';
@@ -61,6 +62,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {
 
+  // ポスト取得
   const keyword = params.tag
   const strIndex = keyword.lastIndexOf('-');
   const page = keyword.slice(strIndex + 1)
@@ -70,10 +72,21 @@ export async function getStaticProps({params}) {
   const data = await res.json();
   const posts = data.posts;
   const pagination = data.meta.pagination;
+
+  // タグ一覧取得
+  const tagsArray = [];
+  const tagsData = await fetch('http://localhost:2371/ghost/api/v3/content/tags/?key=7fa0d0afb3e2820e637a3562fe');
+  const tagsList = await tagsData.json();
+  for (let i = 0; i < tagsList.tags.length; i++) {
+    tagsArray.push(tagsList.tags[i].slug);
+  }
+
     return {
       props: {
         posts: posts,
-        pagination: pagination
+        pagination: pagination,
+        tagName: tagName,
+        tagsArray
       }
     }
 }
@@ -95,7 +108,10 @@ export default function Homes(props) {
         </dl>
       </div>
 
-      <PageTitle pageTitle={'Archive'} />
+<div className={archiveStyles.pageTitle_sort_wrapper}>
+  <PageTitle pageTitle={'Archive'} />
+  <SortBtn tags={props.tagsArray} viewText={props.tagName} />
+</div>
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
         {props.posts.map((value, key) => {
@@ -104,7 +120,7 @@ export default function Homes(props) {
       </div>
 
       <div className={styles.pageNationWrapper}>
-        <PageNation data={props.pagination} />
+        <PageNation data={props.pagination} tagName={props.tagName} pageName={"tags"} />
       </div>
 
       <div className={styles.authorBoxWrapper}>

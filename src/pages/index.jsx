@@ -14,8 +14,16 @@ export const getStaticProps = async () => {
   const posts = await res.json()
   const pagination = posts.meta.pagination;
 
+  // タグ一覧取得
+  const tagsArray = [];
+  const tagsData = await fetch('http://localhost:2371/ghost/api/v3/content/tags/?key=7fa0d0afb3e2820e637a3562fe');
+  const tagsList = await tagsData.json();
+  for (let i = 0; i < tagsList.tags.length; i++) {
+    tagsArray.push(tagsList.tags[i].slug);
+  }
+
     return {
-      props: { posts,pagination }
+      props: { posts, pagination, tagsArray }
     }
 }
 
@@ -40,7 +48,7 @@ export default function Home(props) {
 
     <div className={archiveStyles.pageTitle_sort_wrapper}>
       <PageTitle pageTitle={'Archive'} />
-      <SortBtn />
+      <SortBtn tags={props.tagsArray}/>
     </div>
 
       <div className={archiveStyles.postWrapper} id="postWrapper">
@@ -50,7 +58,7 @@ export default function Home(props) {
       </div>
 
       <div className={styles.pageNationWrapper}>
-        <PageNation data={props.pagination} />
+        <PageNation data={props.pagination} pageName={"archive"} />
       </div>
 
       <div className={styles.authorBoxWrapper}>
