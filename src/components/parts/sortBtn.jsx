@@ -38,14 +38,14 @@ const SortBtn = (props) => {
     return (
         <div className={styles.sortbtn} onClick={handleToggleButtonClick}>
 
-            <div className={styles.sortbtn_view} ref={sortBtnRef}>
+            <div className={styles.sortbtn_view + " " + "global_border"} ref={sortBtnRef}>
                 <span>{props.viewText ? props.viewText : "category"}</span>
                 <svg xmlns="http://www.w3.org/2000/svg" width="9.184" height="4.592" viewBox="0 0 9.184 4.592">
-                    <path id="パス_7" data-name="パス 7" d="M7,10l4.592,4.592L16.184,10Z" transform="translate(-7 -10)" fill="#fff"/>
+                    <path className="path" id="パス_7" data-name="パス 7" d="M7,10l4.592,4.592L16.184,10Z" transform="translate(-7 -10)" fill="#fff"/>
                 </svg>
             </div>
 
-            <div className={styles.sortbtn_lists} style={sortBtnCatState ? {display: "block"} : {display: "none"}}>
+            <div className={styles.sortbtn_lists + " " + 'global_ui_mode'} style={sortBtnCatState ? {display: "block"} : {display: "none"}}>
                 <ul>
                     {props.tags.map(( value ) => {
                         return <li><Link href={"/tags/" + value + "-1"}>{value}</Link></li>

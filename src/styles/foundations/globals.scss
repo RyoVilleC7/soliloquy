@@ -1,3 +1,5 @@
+@import './bind.scss';
+
 html,
 body {
   padding: 0;
@@ -30,21 +32,21 @@ a {
 }
 
 /*pcサイズ以上*/
-@media screen and (min-width: 1100px) {
+@include mq(lg){
   .pc_none {
     display: none;
   }
 }
 
 /*タブレットサイズ*/
-@media screen and (max-width: 1099px) and (min-width: 600px) {
+@include mq(md){
   .tb_none {
     display: none;
   }
 }
 
 /*spサイズ以下*/
-@media screen and (max-width: 599px) {
+@include mq(sm){
   .sp_none {
     display: none;
   }
@@ -77,5 +79,61 @@ code {
     font-size: 16px !important;
     font-family: NotoSansJP !important;
     letter-spacing: 2px;
+  }
+}
+
+.light_mode {
+  background: l_color(BC_COLOR);
+  color: l_color(TEXT_COLOR);
+
+  .global_mode {
+    background: l_color(BC_COLOR);
+    color: l_color(TEXT_COLOR);
+  }
+
+  .global_mode_rv {
+    background: d_color(BC_COLOR);
+    color: d_color(TEXT_COLOR);
+  }
+
+  .global_ui_mode {
+    background: l_color(UI_COLOR);
+    color: l_color(TEXT_COLOR);
+  }
+
+  .path {
+    fill: l_color(TEXT_COLOR);
+  }
+
+  .global_border {
+    border-bottom: 1px solid d_color(BC_COLOR);
+  }
+}
+
+.dark_mode {
+  background: d_color(BC_COLOR);
+  color: d_color(TEXT_COLOR);
+
+  .global_mode {
+    background: d_color(BC_COLOR);
+    color: d_color(TEXT_COLOR);
+  }
+
+  .global_mode_rv {
+    background: l_color(BC_COLOR);
+    color: l_color(TEXT_COLOR);
+  }
+
+  .global_ui_mode {
+    background: d_color(UI_COLOR);
+    color: d_color(TEXT_COLOR);
+  }
+
+  .path {
+    fill: d_color(TEXT_COLOR);
+  }
+
+  .global_border {
+    border-bottom: 1px solid l_color(BC_COLOR);
   }
 }

@@ -20,7 +20,7 @@ const PageNation = (props) => {
   
     //component
     return (
-        <div className={"transition" + " " + Styles.pageNation + " " + (screenMode ? screenModeStyles.ui_bc_light : screenModeStyles.ui_bc_dark)}>
+        <div className={"transition" + " " + Styles.pageNation + " " + "global_ui_mode"}>
             
             <div>
                 {pn.leftMenuLink ? 

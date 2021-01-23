@@ -14,14 +14,14 @@ const Header = props => {
 
     //component
     return (
-        <header className={"transition" + " " + props.Styles.header + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
+        <header className={"transition" + " " + props.Styles.header + " " + "global_mode"}>
             <div className={props.Styles.container}>
                 
                 <h1 onClick={() => { if(spNavState){ dispatch(spNavChange()) }}}>
                     <Link href="/">Soliloquy</Link>
                 </h1>
 
-                <MediaQuery query="(min-width: 600px)">
+                <MediaQuery query="(min-width: 500px)">
                     <ul className={props.Styles.header_menu_wrapper}>
                         {/*<li><Link href='/about'>ABOUT</Link></li>*/}
                         <li><Link href='/archive/1'>ARCHIVE</Link></li>
@@ -32,19 +32,19 @@ const Header = props => {
                     </ul>
                 </MediaQuery>
 
-                <MediaQuery query="(max-width: 599px)">
+                <MediaQuery query="(max-width: 499px)">
                     <div className={spNavState ? props.Styles.sp_menu_open : props.Styles.sp_menu_close} onClick={() => dispatch(spNavChange())}>
-                        <span></span>
-                        <span></span>
-                        <span></span>
+                        <span className="global_mode_rv"></span>
+                        <span className="global_mode_rv"></span>
+                        <span className="global_mode_rv"></span>
                     </div>
                 </MediaQuery>
                 
             </div>
 
             <MediaQuery query="(max-width: 599px)">
-                <div className={props.Styles.sp_nav + " " + (spNavState ? "nav_in" : "nav_out")}>
-                    <PageTitle pageTitle={'Menu'} sp={true} />
+                <div className={props.Styles.sp_nav + " " + (spNavState ? "nav_in" : "nav_out") + " " + "global_mode"}>
+                    <PageTitle pageTitle={'Menu'} />
                     <ul className={props.Styles.header_menu_wrapper}>
                         <li onClick={() => { if(spNavState){ dispatch(spNavChange()) }}}>
                             <Link href='/archive/1'>
@@ -72,7 +72,7 @@ const Header = props => {
                     </ul>
 
                     
-        <footer className={"transition" + " " +props.Styles.footer + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
+        <footer className={"transition" + " " +props.Styles.footer}>
             <div className={props.Styles.container}>
                 <ul>
                     <li><Link href="https://github.com/RyoVilleC7">GITHUB</Link></li>

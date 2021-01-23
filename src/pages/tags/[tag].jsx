@@ -110,7 +110,7 @@ export default function Homes(props) {
       </div>
 
 <div className={archiveStyles.pageTitle_sort_wrapper}>
-  <PageTitle pageTitle={'Archive'} />
+  <PageTitle pageTitle={'Archive'} left={true} />
   <SortBtn tags={props.tagsArray} viewText={props.tagName} />
 </div>
 

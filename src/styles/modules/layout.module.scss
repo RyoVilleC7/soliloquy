@@ -1,30 +1,16 @@
-@import '../foundations/variables.scss';
-
+@import '../foundations/bind.scss';
 
   .sp_nav {
     width: 100%;
     height: calc(100% - 60px);
-    background-color: #fff;
     position: fixed;
     bottom: 0;
     padding: 5%;
     border-top: 1px solid;
     transition: .3s;
 
-    .pageTitle_nav {
-      text-align: center;
+    .pageTitle {
       margin-top: 30px;
-      
-      h2 {
-        font-size: 2.5rem;
-        font-family: 'Moon';
-        letter-spacing: 5px;
-        margin-bottom: 10px;
-      }
-  
-      div {
-        margin: 0 auto;
-      }
     }
 
     ul {
@@ -69,8 +55,8 @@
     position: relative;
     width: 40px;
     height: 17px;
+
     span {
-      background-color: d_color(BC_COLOR);
       position: absolute;
       width: 100%;
       height: 1px;
@@ -103,7 +89,6 @@
     width: 40px;
     height: 17px;
     span {
-      background-color: d_color(BC_COLOR);
       position: absolute;
       left: 0;
       width: 100%;
@@ -194,18 +179,11 @@
   letter-spacing: 2px;
 }
 
-.pageTitle {
+.pageTitle, .pageTitle_left {
   text-align: center;
 }
 
-.pageTitle div {
-  width: 50px;
-  height: 1px;
-  background-color: $BORDER_COLOR;
-  margin: 0 auto;
-}
-
-.pageTitle_nav div {
+.pageTitle div, .pageTitle_left div {
   width: 50px;
   height: 1px;
   background-color: $BORDER_COLOR;
@@ -242,7 +220,7 @@
 }
 
 /*pcサイズ以上*/
-@media screen and (min-width: 1100px) {
+@include mq(lg){
 
   .header {
     width: 100%;
@@ -253,7 +231,7 @@
   }
 
   .container {
-    width: 1100px;
+    width: 1024px;
     height: 100%;
     margin: 0 auto;
   }
@@ -268,7 +246,7 @@
     padding: 70px 0;
   }
 
-  .pageTitle h2 {
+  .pageTitle h2, .pageTitle_left h2 {
     font-size: 3.5rem;
     font-family: 'Moon';
     letter-spacing: 5px;
@@ -286,7 +264,7 @@
 }
 
 /*タブレットサイズ*/
-@media screen and (max-width: 1099px) and (min-width: 700px) {
+@include mq(md){
 
 .header {
   width: 100%;
@@ -297,7 +275,7 @@
 }
 
   .container, .mainContainer {
-    width: 700px;
+    width: 90%;
     height: 100%;
     margin: 0 auto;
   }
@@ -306,7 +284,7 @@
     padding: 70px 0;
   }
 
-  .pageTitle h2 {
+  .pageTitle h2, .pageTitle_left h2 {
     font-size: 3.5rem;
     font-family: 'Moon';
     letter-spacing: 5px;
@@ -323,7 +301,7 @@
 }
 
 /*spサイズ以下*/
-@media screen and (max-width: 699px) {
+@include mq(sm){
 
   .header {
     width: 100%;
@@ -361,6 +339,22 @@
   }
 
   .pageTitle {
+    text-align: center;
+    
+    h2 {
+      font-size: 2.5rem;
+      font-family: 'Moon';
+      letter-spacing: 5px;
+      margin-bottom: 10px;
+    }
+
+    div {
+      margin: 0 auto;
+    }
+
+  }
+
+  .pageTitle_left {
     text-align: left;
     
     h2 {

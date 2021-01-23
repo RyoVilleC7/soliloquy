@@ -1,4 +1,4 @@
-@import '../foundations/variables.scss';
+@import '../foundations/bind.scss';
 
 .sortbtn {
     position: absolute;
@@ -28,9 +28,6 @@
     padding-bottom: 3px;
     margin-bottom: 15px;
 
-    span {
-    }
-
     svg {
         margin: 0 0 2px 5px;
 
@@ -44,20 +41,12 @@
     min-width: 200px;
     position: absolute;
     right: 0;
-    background-color: d_color(BC_COLOR);
-    color: d_color(TEXT_COLOR);
 
     ul {
         list-style-type: none;
         padding: 10px 0;
 
         li {
-
-            &:hover {
-                background-color: d_color(HOVER_COLOR);
-                transition: .3s;
-                cursor: pointer;
-            }
 
             a { 
                 display: block;

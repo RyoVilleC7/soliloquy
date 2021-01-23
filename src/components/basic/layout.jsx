@@ -12,13 +12,15 @@ const Layout = (props) => {
   //component
   return (
     <>
+      <div id="wrapper" className={screenMode ? 'light_mode' : 'dark_mode'}>
       <Header Styles={Styles} />
-      <main className={"transition" + " " +Styles.main + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
+      <main className={"transition" + " " + Styles.main}>
         <div className={Styles.mainContainer}>
           {props.children}
         </div>
       </main>
       <Footer Styles={Styles} />
+      </div>
     </>
   )
 }

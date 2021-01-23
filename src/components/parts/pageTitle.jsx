@@ -4,7 +4,7 @@ const PageTitle = (props) => {
   
     //component
     return (
-        <div className={props.sp ? styles.pageTitle_nav : styles.pageTitle}>
+        <div className={props.left ? styles.pageTitle_left : styles.pageTitle}>
             <h2>{props.pageTitle}</h2>
             <div className="border"></div>
         </div>

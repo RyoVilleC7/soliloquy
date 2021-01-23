@@ -1,4 +1,4 @@
-@import '../foundations//variables.scss';
+@import '../foundations/bind.scss';
 
 .breadcrumb {
     display: flex;
@@ -21,6 +21,7 @@
     }
 }
 
+@include mq(lg){
 .article {
 
     header {
@@ -108,8 +109,9 @@
         line-height: 30px;
         letter-spacing: 2px;
         display: inline-block;
+        text-decoration: underline;
 
-        &:hover {
+        @include hover {
             opacity: 0.8;
         }
     }
@@ -156,3 +158,276 @@
         border-top: 1px solid $BORDER_COLOR;
     }
 }
+}
+
+
+@include mq(md){
+    .article {
+    
+        header {
+    
+            h1 {
+                margin: 25px 0 15px 0 !important;
+                line-height: 35px;
+            }
+        }
+    
+        main {
+            padding-bottom: 50px;
+        }
+    
+    
+        h1 {
+            font-size: 2.6rem;
+            font-weight: bold;
+            line-height: 40px;
+            letter-spacing: 2px;
+            margin: 100px 0 30px;
+            display: block;
+        }
+    
+        h2 {
+            font-size: 2.4rem;
+            font-weight: bold;
+            line-height: 40px;
+            letter-spacing: 2px;
+            margin: 100px 0 30px;
+            padding-bottom: 5px;
+            border-bottom: 1px $BORDER_COLOR solid;
+            display: block;
+        }
+    
+        h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            line-height: 40px;
+            letter-spacing: 2px;
+            margin: 50px 0 10px;
+            display: block;
+        }
+    
+        h4 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            line-height: 35px;
+            letter-spacing: 2px;
+            margin: 30px 0 20px;
+            display: block;
+        }
+    
+        img {
+            width: 100%;
+            height: auto;
+            margin: 10px 0 20px 0;
+        }
+    
+        p {
+            font-size: 1.6rem;
+            line-height: 30px;
+            letter-spacing: 2px;
+            margin: 20px 0 30px;
+            display: block;
+        }
+    
+        strong {
+            font-size: 1.6rem;
+            font-weight: bold;
+            line-height: 30px;
+            letter-spacing: 2px;
+            background:linear-gradient(transparent 60%, rgb(160, 206, 236) 60%);
+        }
+    
+        em {
+            font-size: 1.6rem;
+            line-height: 30px;
+            letter-spacing: 2px;
+        }
+    
+        a {
+            color: $LINK_COLOR;
+            font-size: 1.6rem;
+            line-height: 30px;
+            letter-spacing: 2px;
+            display: inline-block;
+            text-decoration: underline;
+        }
+    
+        ul {
+            list-style-type: none;
+    
+            li {
+                font-size: 1.6rem;
+                line-height: 30px;
+                letter-spacing: 2px;
+                display: block;
+    
+                &::before {
+                    content: "・";
+                }
+            }
+        }
+    
+        code {
+            font-size: 1.6rem;
+            width: 100%;
+            display: block;
+            border-radius: 5px;
+            padding: 10px;
+        }
+    
+        blockquote {
+            border: 1px solid $BORDER_COLOR;
+            border-radius: 10px;
+            padding: 20px;
+            font-size: 1.6rem;
+            line-height: 30px;
+            letter-spacing: 2px;
+            margin: 20px 0 30px;
+            display: block;
+    
+            p {
+                margin: 0;
+            }
+        }
+    
+        hr {
+            border-top: 1px solid $BORDER_COLOR;
+        }
+    }
+    }
+
+
+    @include mq(sm){
+        .article {
+        
+            header {
+        
+                h1 {
+                    margin: 25px 0 15px 0 !important;
+                    line-height: 35px;
+                }
+            }
+        
+            main {
+                padding-bottom: 50px;
+            }
+        
+        
+            h1 {
+                font-size: 2.6rem;
+                font-weight: bold;
+                line-height: 40px;
+                letter-spacing: 2px;
+                margin: 50px 0 30px;
+                display: block;
+            }
+        
+            h2 {
+                font-size: 2.4rem;
+                font-weight: bold;
+                line-height: 40px;
+                letter-spacing: 2px;
+                margin: 50px 0 30px;
+                padding-bottom: 5px;
+                border-bottom: 1px $BORDER_COLOR solid;
+                display: block;
+            }
+        
+            h3 {
+                font-size: 2rem;
+                font-weight: bold;
+                line-height: 40px;
+                letter-spacing: 2px;
+                margin: 30px 0 10px;
+                display: block;
+            }
+        
+            h4 {
+                font-size: 1.8rem;
+                font-weight: bold;
+                line-height: 35px;
+                letter-spacing: 2px;
+                margin: 30px 0 20px;
+                display: block;
+            }
+        
+            img {
+                width: 100%;
+                height: auto;
+                margin: 10px 0 20px 0;
+            }
+        
+            p {
+                font-size: 1.6rem;
+                line-height: 30px;
+                letter-spacing: 2px;
+                margin: 20px 0 30px;
+                display: block;
+            }
+        
+            strong {
+                font-size: 1.6rem;
+                font-weight: bold;
+                line-height: 30px;
+                letter-spacing: 2px;
+                background:linear-gradient(transparent 60%, rgb(160, 206, 236) 60%);
+            }
+        
+            em {
+                font-size: 1.6rem;
+                line-height: 30px;
+                letter-spacing: 2px;
+            }
+        
+            a {
+                color: $LINK_COLOR;
+                font-size: 1.6rem;
+                line-height: 30px;
+                letter-spacing: 2px;
+                display: inline-block;
+                text-decoration: underline;
+            }
+        
+            ul {
+                list-style-type: none;
+        
+                li {
+                    font-size: 1.6rem;
+                    line-height: 30px;
+                    letter-spacing: 2px;
+                    display: block;
+        
+                    &::before {
+                        content: "・";
+                    }
+                }
+            }
+        
+            code {
+                font-size: 1.6rem;
+                width: 100%;
+                display: block;
+                border-radius: 5px;
+                padding: 10px;
+            }
+        
+            blockquote {
+                border: 1px solid $BORDER_COLOR;
+                border-radius: 10px;
+                padding: 20px;
+                font-size: 1.6rem;
+                line-height: 30px;
+                letter-spacing: 2px;
+                margin: 20px 0 30px;
+                display: block;
+        
+                p {
+                    margin: 0;
+                }
+            }
+        
+            hr {
+                border-top: 1px solid $BORDER_COLOR;
+            }
+        }
+        }

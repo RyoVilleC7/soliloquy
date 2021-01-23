@@ -70,7 +70,7 @@ export default function Post(props) {
     <>
     <ArticleMeta title={postData.title} excerpt={postData.excerpt} slug={postData.slug} thumbnail={postData.thumbnail}/>
     <BreadCrumb title={postData.title} />
-    <PageTitle pageTitle={"POST"} Styles={styles} />
+    <PageTitle pageTitle={"POST"} />
 
     <article className={PostStyles.article}>
       <header>

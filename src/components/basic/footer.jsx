@@ -9,7 +9,7 @@ const Footer = (props) => {
   
     //component
     return (
-        <footer className={"transition" + " " +props.Styles.footer + " " + (screenMode ? screenModeStyles.light_mode : screenModeStyles.dark_mode)}>
+        <footer className={"transition" + " " +props.Styles.footer}>
             <div className={props.Styles.container}>
                 <ul>
                     <li><Link href="https://github.com/RyoVilleC7">GITHUB</Link></li>
