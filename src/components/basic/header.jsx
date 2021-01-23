@@ -43,7 +43,7 @@ const Header = props => {
             </div>
 
             <MediaQuery query="(max-width: 599px)">
-                <div className={props.Styles.sp_nav + " " + (spNavState ? "nav_in" : "nav_out") + " " + "global_mode"}>
+                <div className={props.Styles.sp_nav + " " + (spNavState ? "nav_in" : "nav_out") + " " + "global_mode" + " " + "noscroll"}>
                     <PageTitle pageTitle={'Menu'} />
                     <ul className={props.Styles.header_menu_wrapper}>
                         <li onClick={() => { if(spNavState){ dispatch(spNavChange()) }}}>

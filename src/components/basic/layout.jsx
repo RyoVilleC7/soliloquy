@@ -1,13 +1,18 @@
 import Header from './header';
 import Footer from './footer';
+import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import Styles from '../../styles/modules/layout.module.scss'
-import screenModeStyles from '../../styles/modules/screenMode.module.scss'
+import { NoScroll } from '../../functions/main';
 
 const Layout = (props) => {
 
   //redux
   const screenMode = useSelector(state => state.screenMode)
+
+  useEffect(() => {
+    NoScroll();
+  },[])
   
   //component
   return (
