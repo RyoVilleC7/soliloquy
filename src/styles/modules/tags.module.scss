@@ -1,0 +1,57 @@
+@import '../foundations/bind.scss';
+
+.tags_all_wrapper {
+    list-style-type: none;
+    width: 100%;
+    li {
+        width: 100%;
+        background-color: l_color(UI_COLOR);
+        color: l_color(TEXT_COLOR);
+        margin-bottom: 10px;
+
+        &:last-child {
+            margin: 0;
+        }
+
+        a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 20px;
+
+            h2, span {
+                font-family: 'Moon';
+                font-size: 1.6rem;
+            }
+        }
+    }
+}
+
+@include mq(sm){
+    .tags_all_wrapper {
+        list-style-type: none;
+        width: 100%;
+        li {
+            width: 100%;
+            background-color: l_color(UI_COLOR);
+            color: l_color(TEXT_COLOR);
+            margin-bottom: 10px;
+    
+            &:last-child {
+                margin: 0;
+            }
+    
+            a {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 15px 15px;
+    
+                h2, span {
+                    font-family: 'Moon';
+                    font-size: 1.4rem;
+                }
+            }
+        }
+    }
+}
