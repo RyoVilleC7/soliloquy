@@ -1,7 +1,12 @@
 @import '../foundations/bind.scss';
 
+.pageTitle_sort_wrapper_index {
+    position: relative;
+}
+
 .pageTitle_sort_wrapper {
     position: relative;
+    margin-top: 80px;
 }
 
 .postStatus {
@@ -152,6 +157,10 @@
   
   /*spサイズ以下*/
 @include mq(sm){
+
+    .pageTitle_sort_wrapper {
+        margin-top: 50px;
+    }
     
     .archiveTopLogoWrapper {
         margin: 30px 0;

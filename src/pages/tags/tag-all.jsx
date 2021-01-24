@@ -46,16 +46,6 @@ export default function TagAll(props) {
   return (
     <>
     <Meta />
-      <div className={archiveStyles.archiveTopLogoWrapper}>
-        <dl className={archiveStyles.archiveTopLogo}>
-          <dt>
-            Soliloquy
-          </dt>
-          <dd>
-            とあるWebエンジニアの生活雑貨&ガジェット&技術ブログ
-          </dd>
-        </dl>
-      </div>
 
     <div className={archiveStyles.pageTitle_sort_wrapper}>
       <PageTitle pageTitle={'Tags'} />

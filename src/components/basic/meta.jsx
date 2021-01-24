@@ -6,7 +6,9 @@ const Meta = () => {
     return (
         <Head>
             <title>Soliloquy</title>
-            <meta name="description" content="とあるWebエンジニアの生活雑貨＆ガジェット＆技術ブログ" />
+            <link rel="icon" href="/images/favicon.ico" />
+            <link rel="apple-touch-icon" href="/images/apple-touch-icon-192×192.png" />
+            <meta name="description" content="とあるWebエンジニアの趣味ブログ" />
             <meta property="og:title" content="Soliloquy" />
             <meta property="og:type" content="website" />
             <meta property="og:url" content="ページの URL" />

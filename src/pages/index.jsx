@@ -42,12 +42,12 @@ export default function Home(props) {
             Soliloquy
           </dt>
           <dd>
-            とあるWebエンジニアの生活雑貨&ガジェット&技術ブログ
+            とあるWebエンジニアの趣味ブログ
           </dd>
         </dl>
       </div>
 
-    <div className={archiveStyles.pageTitle_sort_wrapper}>
+    <div className={archiveStyles.pageTitle_sort_wrapper_index}>
       <PageTitle pageTitle={'Archive'} left={true} />
       <SortBtn tags={props.tagsArray}/>
     </div>

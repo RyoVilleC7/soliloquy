@@ -4,7 +4,7 @@ const TagCard = (props) => {
   
     //component
     return (
-        <li>
+        <li className="global_ui_mode">
             <Link href={props.title + '-1'}>
                 <a>
                     <h2> - {props.title}</h2>
