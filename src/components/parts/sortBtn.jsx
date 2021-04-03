@@ -1,38 +1,36 @@
 import { useEffect, useRef } from 'react';
 import Link from 'next/link'
-import { useDispatch,useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { sortBtn_cat_Change, sortBtn_falseOnly_Change } from '../../store/actions/action';
 import styles from '../../styles/modules/sortbtn.module.scss';
-import {store} from '../../store/store';
 
 const SortBtn = (props) => {
 
     const sortBtnRef = useRef(null);
-    const documentClickHandler = useRef(null)
+    const documentClickHandler = useRef(null);
 
     useEffect(() => {
-        console.log(store.getState().sortBtn_cat)
         documentClickHandler.current = e => {
             if(sortBtnRef.current.contains(e.target) !== false){
                 dispatch(sortBtn_cat_Change());
             }else {
                 dispatch(sortBtn_falseOnly_Change());
                 removeDocumentClickHandler();
-            }
-        }
+            };
+        };
     },[]);
 
     const removeDocumentClickHandler = () => {
-      document.removeEventListener('click', documentClickHandler.current)
-    }
+      document.removeEventListener('click', documentClickHandler.current);
+    };
   
     const handleToggleButtonClick = () => {
-      document.addEventListener('click', documentClickHandler.current)
-    }
+      document.addEventListener('click', documentClickHandler.current);
+    };
 
     //redux
     const dispatch = useDispatch();
-    const sortBtnCatState = useSelector(state => state.sortBtn_cat)
+    const sortBtnCatState = useSelector(state => state.sortBtn_cat);
   
     //component
     return (
@@ -47,14 +45,14 @@ const SortBtn = (props) => {
 
             <div className={styles.sortbtn_lists + " " + 'global_ui_mode'} style={sortBtnCatState ? {display: "block"} : {display: "none"}}>
                 <ul>
-                    {props.tags.map(( value ) => {
-                        return <li><Link href={"/tags/" + value + "-1"}>{value}</Link></li>
+                    {props.tags.map(( value, key ) => {
+                        return <li key={key}><Link href={"/tags/" + value + "-1"}>{value}</Link></li>
                     })}
                 </ul>
             </div>
 
         </div>
-    )
-}
+    );
+};
 
 export default SortBtn;

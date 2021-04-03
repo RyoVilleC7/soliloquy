@@ -8,7 +8,7 @@ const AuthorBox = (props) => {
         <div className={Styles.author_box}>
             <PageTitle pageTitle={"Author"} />
             <div className={Styles.author_box_flexbox}>
-            <img src="/images/author-image.jpg" className={Styles.author_box_image} />
+            <img src="/images/Q7_dAVBg_400x400.jpg" className={Styles.author_box_image} />
             <dl>
                 <dt>RYOTARO HADA / 羽田 涼太郎</dt>
                 <dd>
@@ -21,7 +21,7 @@ const AuthorBox = (props) => {
                 */}
                 <dd>
                     <ul>
-                        <li><Link href="https://github.com/RyoVilleC7">GITHUB</Link></li>
+                        <li><Link href="https://github.com/ryotarohada">GITHUB</Link></li>
                         <li><Link href="https://mobile.twitter.com/Ryotaro_WAVES">TWITTER</Link></li>
                         {/*<li><Link href="#">CONTACT</Link></li>*/}
                     </ul>

@@ -1,3 +1,5 @@
+import { store } from "../store"
+
 export const initialState = {
     screenMode: true,
     spNav: false,
@@ -5,6 +7,7 @@ export const initialState = {
 }
 
 export const reducer = function(state = initialState, action){
+
     switch (action.type) {
         case 'SCREENMODE_CAHNGE_LIGHT':
             return {
