@@ -13,7 +13,7 @@ const AuthorBox = (props) => {
                 <dt>RYOTARO HADA / 羽田 涼太郎</dt>
                 <dd>
                     都内勤務のWebエンジニア。<br/>
-                    生活雑貨、ガジェット、Webに関する技術などを記事にしています。
+                    Webに関する技術などを記事にしています。
                 </dd>
                 {/*<dd>
                     <Button text="About" link="/about" />
